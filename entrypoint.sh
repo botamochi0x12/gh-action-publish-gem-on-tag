@@ -18,7 +18,7 @@ ls -Al # TODO: Remove it
 echo "Verifying the version matches the gem version"
 VERSION_TAG="$(echo $GITHUB_REF | cut -d / -f 3)"
 GEM_VERSION="$(ruby -e "require 'rubygems'; gemspec = Dir.entries('.').find { |file| file =~ /.*\.gemspec/ }; spec = Gem::Specification::load(gemspec); puts spec.version")"
-if [[ "$VERSION_TAG" != "$GEM_VERSION" ]]; then
+if [[ "$VERSION_TAG" != "$GEM_VERSION" && "$VERSION_TAG" != "v$GEM_VERSION" ]]; then
   echo "Version tag ($VERSION_TAG) does not match gem version ($GEM_VERSION)"
   exit 2;
 fi
