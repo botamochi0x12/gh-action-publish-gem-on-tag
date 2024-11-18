@@ -13,6 +13,7 @@ fi
 
 git config --global --add safe.directory /github/workspace
 pwd # TODO: Remove it
+ls -Al # TODO: Remove it
 
 echo "Verifying the version matches the gem version"
 VERSION_TAG="$(echo $GITHUB_REF | cut -d / -f 3)"
